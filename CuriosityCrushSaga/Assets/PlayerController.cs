@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
 		{
 		case STATES.STANDING:
 			body.gravityScale = 1.0f;
-			body.velocity = new Vector2(0.0f, 0.0f);
+			body.velocity = new Vector2(0.0f, body.velocity.y);
 			if( Input.GetButtonDown("Jump") )
 			{
 				body.velocity = new Vector2(body.velocity.x, jump_strength);
