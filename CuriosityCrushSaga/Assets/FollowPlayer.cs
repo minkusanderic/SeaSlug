@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class FollowPlayer : MonoBehaviour
 {
-    public GameObject player;
-    public float deadZone;
-
+    public int catRank;
 
     void Update()
     {
+        if (transform.position != Globals.positions[catRank])
+        {
+            Globals.positions[catRank + 1] = transform.position;
+            transform.position = Globals.positions[catRank];
+        }
     }
 }
 
