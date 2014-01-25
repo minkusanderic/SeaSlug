@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 
 /// <summary>Allows backup cats to follow main cat.</summary>
 public class FollowPlayer : MonoBehaviour
@@ -14,6 +14,9 @@ public class FollowPlayer : MonoBehaviour
     /// <summary>Set initial position/destination to start location.</summary>
     void Start()
     {
+        float newX = transform.position.x + Random.Range(-1.5f, 1.5f);
+        float newY = transform.position.y + Random.Range(0, 0.5f);
+        transform.position = new Vector3(newX, newY, transform.position.z);
         Globals.Positions[CatRank] = destination = transform.position;
     }
 
