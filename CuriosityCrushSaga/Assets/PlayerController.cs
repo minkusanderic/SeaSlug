@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -23,16 +23,23 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		body = gameObject.GetComponent<Rigidbody2D>();
+        Globals.positions[0] = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		var value = Input.GetAxis("Horizontal");
+        //var value = Input.GetAxis("Horizontal");
 		//var a = GetComponent(Rigidbody);
 		//var body = gameObject.GetComponent<Rigidbody2D>();
 		//body.AddForce(Vector2.right * value); 
 		//body.velocity = new Vector2(value * speed, body.velocity.y);
 		//body.velocity += Vector2.right * value * speed;
+
+        if (Vector3.Distance(transform.position, Globals.positions[0]) > Globals.followDeadZone)
+        {
+            Globals.positions[1] = Globals.positions[0];
+            Globals.positions[0] = transform.position;
+        }
 
 		handleStates();
 	}
