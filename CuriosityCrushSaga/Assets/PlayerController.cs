@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		body = gameObject.GetComponent<Rigidbody2D>();
-        Globals.positions[0] = transform.position;
+        Globals.Positions[0] = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -35,10 +35,10 @@ public class PlayerController : MonoBehaviour {
 		//body.velocity = new Vector2(value * speed, body.velocity.y);
 		//body.velocity += Vector2.right * value * speed;
 
-        if (Vector3.Distance(transform.position, Globals.positions[0]) > Globals.followDeadZone)
+        if (Vector3.Distance(transform.position, Globals.Positions[0]) > Globals.FollowDeadZone)
         {
-            Globals.positions[1] = Globals.positions[0];
-            Globals.positions[0] = transform.position;
+            Globals.Positions[1] = Globals.Positions[0];
+            Globals.Positions[0] = transform.position;
         }
 
 		handleStates();

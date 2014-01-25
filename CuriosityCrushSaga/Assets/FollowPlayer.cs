@@ -1,17 +1,33 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-
+/// <summary>Allows backup cats to follow main cat.</summary>
 public class FollowPlayer : MonoBehaviour
 {
-    public int catRank;
+    /// <summary>Cat's place in line; first cat is 1.</summary>
+    public int CatRank;
+    /// <summary>Cat's quickness when following.</summary>
+    public float FollowRate;
 
+    /// <summary>Next location to visit.</summary>
+    private Vector3 destination;
+
+    /// <summary>Set initial position/destination to start location.</summary>
+    void Start()
+    {
+        Globals.Positions[CatRank] = destination = transform.position;
+    }
+
+    /// <summary>Moves the entity toward its destination.</summary>
     void Update()
     {
-        if (transform.position != Globals.positions[catRank])
+        if (destination != Globals.Positions[CatRank])
         {
-            Globals.positions[catRank + 1] = transform.position;
-            transform.position = Globals.positions[catRank];
+            Globals.Positions[CatRank + 1] = destination;
+            destination = Globals.Positions[CatRank];
+        }
+        else if (transform.position != destination)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, destination, FollowRate * Time.deltaTime);
         }
     }
 }
