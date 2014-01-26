@@ -661,6 +661,15 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 2.33299994
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: skeletonDataAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ba0b3727b892946978e6af97977bc433,
+        type: 2}
+    - target: {fileID: 2300002, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91199cd3bf6974af0a230827f3dead42, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
   m_RootGameObject: {fileID: 1439116482}
@@ -7784,7 +7793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: b680771ce98af424a9cd167c36bb4b7c, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: ba0b3727b892946978e6af97977bc433, type: 2}
   initialSkinName: default
   timeScale: 1
   calculateNormals: 1
@@ -7804,7 +7813,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: a4adc16f10c0345f587ddb3d651ece79, type: 2}
+  - {fileID: 2100000, guid: 91199cd3bf6974af0a230827f3dead42, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -7829,7 +7838,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1831012460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62acfb567ab444c4fb664729d99d2b28, type: 3}
+  m_Script: {fileID: 11500000, guid: e903c95e360084cc28ada878f6200700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FrameThreshold: 0
