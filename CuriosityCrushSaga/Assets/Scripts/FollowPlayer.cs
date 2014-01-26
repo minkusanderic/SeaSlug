@@ -9,6 +9,9 @@ public class FollowPlayer : MonoBehaviour
     /// <summary>Next location to visit.</summary>
     private Vector3 destination;
 
+    /// <summary>What movement mode are we in?</summary>
+    private bool scamperMode = false;
+
     /// <summary>Set initial position/destination to start location.</summary>
     void Start()
     {
@@ -21,15 +24,34 @@ public class FollowPlayer : MonoBehaviour
     /// <summary>Moves the entity toward its destination.</summary>
     void Update()
     {
-        if (destination != Globals.Positions[CatRank])
+        /*
+        if (scamperMode)
         {
-            Globals.Positions[CatRank + 1] = destination;
-            destination = Globals.Positions[CatRank];
+            if (Globals.Positions[CatRank] != Globals.PlayerPosition)
+            {
+                Debug.Log("*** Hiho!");
+                float step = Globals.FollowRate * Time.deltaTime;
+                Vector3 scamper = new Vector3(transform.position.x + Random.Range(-1.5f, 1.5f), Globals.PlayerPosition.y, 0);
+                transform.position = Vector3.MoveTowards(transform.position, scamper, step);
+            }
         }
-        else if (transform.position != destination)
+        else
         {
-            float step = (Globals.PlayerPosition - transform.position).magnitude * Globals.FollowRate * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, destination, step);
+            if (destination != Globals.Positions[CatRank])
+            {
+                Globals.Positions[CatRank + 1] = destination;
+                destination = Globals.Positions[CatRank];
+            }
+            else if (transform.position != destination)
+            {
+                float step = (Globals.PlayerPosition - transform.position).magnitude * Globals.FollowRate * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, destination, step);
+            }
+            else
+            {
+                Debug.Log("*** Cat " + CatRank + " is seeking!");
+            }
         }
+        */
     }
 }

@@ -1,0 +1,33 @@
+
+Walk01.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 65
+  size: 227, 180
+  orig: 227, 180
+  offset: 0, 0
+  index: -1
+eyebrows
+  rotate: true
+  xy: 231, 117
+  size: 128, 14
+  orig: 128, 14
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 141, 2
+  size: 89, 61
+  orig: 89, 61
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 2, 14
+  size: 137, 49
+  orig: 137, 49
+  offset: 0, 0
+  index: -1
