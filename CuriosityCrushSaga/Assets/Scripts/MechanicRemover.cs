@@ -3,6 +3,9 @@ using System.Collections;
 
 public class MechanicRemover : MonoBehaviour
 {
+    public GameObject KillMeFirst;
+    public GameObject KillMeSecond;
+
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 
@@ -12,11 +15,17 @@ public class MechanicRemover : MonoBehaviour
 			if(cont.hasDoubleJump)
 			{
 				cont.hasDoubleJump = false;
+                Destroy(KillMeFirst);
 			}
-			else
+            else if(cont.hasDoubleJump)
 			{
 				cont.hasClimb = false;
+                Destroy(KillMeSecond);
 			}
+            else
+            {
+                Application.LoadLevel("EndScene");
+            }
 
 			cont.Respawn();
 		}

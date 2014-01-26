@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour {
 			if( Input.GetButtonDown("Jump") )
 			{
                 PlayerAnimator.state.SetAnimation(0, "jumpPink", false);
+                Miaomiao.Play();
 
 				body.velocity = new Vector2(body.velocity.x, jump_strength);
 				switchTo(STATES.JUMPING);
@@ -132,6 +133,7 @@ public class PlayerController : MonoBehaviour {
 			if( Input.GetButtonDown("Jump") ) {
 				body.velocity = new Vector2(horizontal, jump_strength * .5f);
 				switchTo(STATES.JUMPING);
+                Miaomiao.Play();
 			}
 			break;
 		}
