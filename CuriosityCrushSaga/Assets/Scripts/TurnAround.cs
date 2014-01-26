@@ -25,17 +25,13 @@ public class TurnAround : MonoBehaviour
 
         float difference = (transform.position.x - lastPosition.x);
 
-        Debug.Log(">>> Difference: " + difference);
-
-        if (difference > 1)
+        if (difference > 1f)
         {
-            Debug.Log("*** Turning right." );
-            transform.RotateAround(Vector3.zero, Vector3.up, 0);
+            Debug.Log("*** Turning right.  Difference: " + difference);
         }
-        else if (difference < 1)
+        else if (difference < -1f)
         {
-            Debug.Log("*** Turning left." );
-            transform.RotateAround(Vector3.zero, Vector3.up, 180);
+            Debug.Log("*** Turning left.  Difference: " + difference);
         }
 
         lastPosition = transform.position;

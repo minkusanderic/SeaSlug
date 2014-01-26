@@ -1,0 +1,53 @@
+{
+"bones": [
+	{ "name": "root" },
+	{ "name": "Body", "parent": "root" },
+	{ "name": "Face", "parent": "Body", "x": 7 },
+	{ "name": "Eyebrows T_T", "parent": "Face", "x": 1.22, "y": 18.32 }
+],
+"slots": [
+	{ "name": "BodyFront", "bone": "Body", "attachment": "bodyFront" },
+	{ "name": "face", "bone": "Face", "attachment": "face" },
+	{ "name": "eyebrows", "bone": "Eyebrows T_T", "attachment": "eyebrows" }
+],
+"skins": {
+	"default": {
+		"BodyFront": {
+			"bodyFront": { "width": 173, "height": 180 }
+		},
+		"eyebrows": {
+			"eyebrows": { "x": -14.27, "y": 5.79, "width": 128, "height": 14 }
+		},
+		"face": {
+			"face": { "x": -2.55, "y": -6.5, "width": 89, "height": 61 }
+		}
+	}
+},
+"animations": {
+	"wallClimb": {
+		"bones": {
+			"Body": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 0.19, "angle": -90.02 },
+					{ "time": 0.38, "angle": -179.84 },
+					{ "time": 0.5935, "angle": 90.58 },
+					{ "time": 0.8032, "angle": 0 }
+				],
+				"scale": [
+					{ "time": 0, "x": 1, "y": 1 },
+					{ "time": 0.38, "x": 1, "y": 0.931 },
+					{ "time": 0.8032, "x": 1, "y": 1 }
+				]
+			}
+		},
+		"slots": {
+			"BodyFront": {
+				"color": [
+					{ "time": 0, "color": "fea6ffff" }
+				]
+			}
+		}
+	}
+}
+}
