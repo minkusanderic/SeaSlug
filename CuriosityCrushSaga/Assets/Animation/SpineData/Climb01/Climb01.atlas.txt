@@ -1,0 +1,26 @@
+
+Climb01.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bodyFront
+  rotate: false
+  xy: 2, 65
+  size: 173, 180
+  orig: 173, 180
+  offset: 0, 0
+  index: -1
+eyebrows
+  rotate: true
+  xy: 177, 117
+  size: 128, 14
+  orig: 128, 14
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 2, 2
+  size: 89, 61
+  orig: 89, 61
+  offset: 0, 0
+  index: -1

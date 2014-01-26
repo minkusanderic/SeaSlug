@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -6,6 +6,10 @@ public class PlayerController : MonoBehaviour {
 	public bool hasDoubleJump;
 	public bool hasClimb;
 
+    public SkeletonAnimation PlayerAnimator;
+    public AudioSource Miaomiao;
+    private int pauseBetwixtMiaos;
+    private int pausePaws;
 
 	public float runningSpeed = 10.0f;
 	public float climbingSpeed = 2.0f;
@@ -34,6 +38,8 @@ public class PlayerController : MonoBehaviour {
 		body = gameObject.GetComponent<Rigidbody2D>();
         Globals.Positions[0] = transform.position;
 		respawnPosition = transform.position;
+        pauseBetwixtMiaos = Random.Range(3, 5);
+        pausePaws = 0;
 	}
 
 	public void Respawn()
@@ -73,10 +79,14 @@ public class PlayerController : MonoBehaviour {
 			body.angularVelocity = 0.0f;
 			if( Input.GetButtonDown("Jump") )
 			{
+                PlayerAnimator.state.SetAnimation(0, "jumpPink", false);
+
 				body.velocity = new Vector2(body.velocity.x, jump_strength);
 				switchTo(STATES.JUMPING);
 			}else if(horizontal != 0.0f)
 			{
+                PlayerAnimator.state.SetAnimation(0, "walkPink", true);
+
 				body.velocity = new Vector2(horizontal * runningSpeed, body.velocity.y);
 				switchTo (STATES.RUNNING);
 			}
@@ -88,7 +98,9 @@ public class PlayerController : MonoBehaviour {
 			body.velocity = new Vector2(horizontal * runningSpeed * jumpSpeedRatio, Mathf.Max(body.velocity.y, -maxGlideSpeed));
 			if( hasDoubleJump && Input.GetButtonDown("Jump") )
 			{
-				body.velocity = new Vector2(body.velocity.x, jump_strength);
+                PlayerAnimator.state.SetAnimation(0, "jumpPink", false);
+
+                body.velocity = new Vector2(body.velocity.x, jump_strength);
 				switchTo(STATES.DOUBLEJUMP);
 			}
 			break;
@@ -108,11 +120,15 @@ public class PlayerController : MonoBehaviour {
 			}
 			if( Input.GetButtonDown("Jump") )
 			{
+                PlayerAnimator.state.SetAnimation(0, "jumpPink", false);
+
 				body.velocity = new Vector2(body.velocity.x, jump_strength);
 				switchTo(STATES.JUMPING);
 			}
 			break;
 		case STATES.CLIMBING:
+            // TODO: Add climable here!
+
 			body.gravityScale = 0.0f;
 			body.velocity = new Vector2(0.0f, vertical * climbingSpeed);
 			if( Input.GetButtonDown("Jump") ) {
@@ -135,19 +151,31 @@ public class PlayerController : MonoBehaviour {
 
 			if(hasClimb && collision.gameObject.tag == "Climable")
 			{
+                // TODO: Add climable here!
+
 				switchTo(STATES.CLIMBING);
 				currentAttached = collision.gameObject;
 			}
 			else
 			{
+                PlayerAnimator.state.SetAnimation(0, "landPink", false);
+                pausePaws++;
+                if (pausePaws == pauseBetwixtMiaos)
+                {
+                    Miaomiao.Play();
+                    pauseBetwixtMiaos = Random.Range(3, 5);
+                    pausePaws = 0;
+                }
+
 				switchTo(STATES.STANDING);
 			}
 			break;
 		case STATES.RUNNING:
 			if(hasClimb && collision.gameObject.tag == "Climable")
 			{
-				switchTo(STATES.CLIMBING);
+                // TODO: Add climable here!
 
+				switchTo(STATES.CLIMBING);
 			}
 			break;
 		case STATES.CLIMBING:
