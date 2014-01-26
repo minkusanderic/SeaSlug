@@ -657,6 +657,10 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.33299994
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
   m_RootGameObject: {fileID: 1439116482}
@@ -7736,6 +7740,7 @@ GameObject:
   - 23: {fileID: 1831012464}
   - 114: {fileID: 1831012463}
   - 114: {fileID: 1831012462}
+  - 114: {fileID: 1831012466}
   m_Layer: 0
   m_Name: SlugCatAnimation
   m_TagString: Untagged
@@ -7816,6 +7821,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 98381510}
   m_GameObject: {fileID: 1831012460}
   m_Mesh: {fileID: 0}
+--- !u!114 &1831012466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1831012460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62acfb567ab444c4fb664729d99d2b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrameThreshold: 0
 --- !u!1 &1831392745
 GameObject:
   m_ObjectHideFlags: 0
