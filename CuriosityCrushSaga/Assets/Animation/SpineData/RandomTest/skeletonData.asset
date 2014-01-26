@@ -9,17 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
-  m_Name: spineboySkeleton
+  m_Name: skeletonData
   m_EditorClassIdentifier: 
-  atlasAsset: {fileID: 11400000, guid: d69dc6a2ff9584d2cbc57298f20d1f22, type: 2}
-  skeletonJSON: {fileID: 4900000, guid: 936184a5898844b7f8e9c8bdf40777f3, type: 3}
+  atlasAsset: {fileID: 11400000, guid: 3233fd4aaf1ff4c4197a1bac59a1a137, type: 2}
+  skeletonJSON: {fileID: 4900000, guid: 1e481c484174b4f0bab8e891f02c9f20, type: 3}
   scale: 1
   fromAnimation:
-  - walk
-  - jump
+  - baseAnimate
+  - baseShoots
   toAnimation:
-  - walk
-  - jump
+  - baseAnimate
+  - baseShoots
   duration:
   - 0
-  - 0
+  - 1
