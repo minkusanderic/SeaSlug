@@ -9,33 +9,29 @@ public class FollowPlayer : MonoBehaviour
     /// <summary>Next location to visit.</summary>
     private Vector3 destination;
 
+    /// <summary>Next location to wander to.</summary>
+    private Vector3 scamperPoint;
+
     /// <summary>What movement mode are we in?</summary>
-    private bool scamperMode = false;
+    private bool following = true;
+
+    /// <summary>Random displacement when scampering, left.</summary>
+    private float hOffsetNega = -2.333f;
+    /// <summary>Random displacement when scampering, right.</summary>
+    private float hOffsetPosi = 2.333f;
 
     /// <summary>Set initial position/destination to start location.</summary>
     void Start()
     {
-        float newX = transform.position.x + Random.Range(-1.5f, 1.5f);
-        float newY = transform.position.y + Random.Range(0, 0.5f);
-        transform.position = new Vector3(newX, newY, transform.position.z);
+        float newX = transform.position.x + Random.Range(hOffsetNega, hOffsetPosi);
+        transform.position = new Vector3(newX, Globals.PlayerPosition.y, transform.position.z);
         Globals.Positions[CatRank] = destination = transform.position;
     }
 
     /// <summary>Moves the entity toward its destination.</summary>
     void Update()
     {
-        /*
-        if (scamperMode)
-        {
-            if (Globals.Positions[CatRank] != Globals.PlayerPosition)
-            {
-                Debug.Log("*** Hiho!");
-                float step = Globals.FollowRate * Time.deltaTime;
-                Vector3 scamper = new Vector3(transform.position.x + Random.Range(-1.5f, 1.5f), Globals.PlayerPosition.y, 0);
-                transform.position = Vector3.MoveTowards(transform.position, scamper, step);
-            }
-        }
-        else
+        if (following) // Seek Mode
         {
             if (destination != Globals.Positions[CatRank])
             {
@@ -49,9 +45,22 @@ public class FollowPlayer : MonoBehaviour
             }
             else
             {
-                Debug.Log("*** Cat " + CatRank + " is seeking!");
+                scamperPoint = new Vector3(transform.position.x + Random.Range(hOffsetNega, hOffsetPosi), Globals.PlayerPosition.y, 0);
+                destination = Globals.Positions[CatRank] = new Vector3(destination.x, Globals.PlayerPosition.y, 0);
+                following = false;
             }
         }
-        */
+        else // Scamper Mode
+        {
+            if (transform.position != scamperPoint)
+            {
+                float step = (Globals.PlayerPosition - transform.position).magnitude * Globals.ScamperRate * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, scamperPoint, step);
+            }
+            else
+            {
+                following = true;
+            }
+        }
     }
 }
