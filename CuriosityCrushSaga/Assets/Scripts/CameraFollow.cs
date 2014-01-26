@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		var pos = target.transform.position;
-		var vel = target.GetComponent<Rigidbody2D>().velocity;
+        //var vel = target.GetComponent<Rigidbody2D>().velocity;
 		gameObject.transform.position = new Vector3(pos.x, pos.y, gameObject.transform.position.z);
         //var camera = gameObject.GetComponent<Camera>();
 
