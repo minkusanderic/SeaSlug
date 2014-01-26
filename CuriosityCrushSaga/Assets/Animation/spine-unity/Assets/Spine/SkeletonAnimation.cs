@@ -39,12 +39,15 @@ public class SkeletonAnimation : SkeletonComponent {
 	public Spine.AnimationState state;
 
 	public String _animationName;
-	public String animationName {
-		get {
+	public String animationName
+    {
+		get
+        {
 			TrackEntry entry = state.GetCurrent(0);
 			return entry == null ? null : entry.Animation.Name;
 		}
-		set {
+		set
+        {
 			if (_animationName == value) return;
 			_animationName = value;
 			if (value == null || value.Length == 0)
@@ -54,7 +57,8 @@ public class SkeletonAnimation : SkeletonComponent {
 		}
 	}
 
-	override public void Initialize () {
+	override public void Initialize ()
+    {
 		if (Initialized) return;
 
 		base.Initialize();

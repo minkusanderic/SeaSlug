@@ -28,7 +28,8 @@ public class FollowPlayer : MonoBehaviour
         }
         else if (transform.position != destination)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destination, Globals.FollowRate * Time.deltaTime);
+            float step = (Globals.PlayerPosition - transform.position).magnitude * Globals.FollowRate * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, destination, step);
         }
     }
 }

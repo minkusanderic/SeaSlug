@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour {
         }
 
 		handleStates();
+
+        Globals.PlayerPosition = transform.position;
 	}
 
 	private void handleStates()
