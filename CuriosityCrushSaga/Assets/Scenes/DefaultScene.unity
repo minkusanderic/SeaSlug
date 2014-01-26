@@ -5988,6 +5988,7 @@ GameObject:
   - 82: {fileID: 1439116490}
   - 81: {fileID: 1439116489}
   - 82: {fileID: 1439116491}
+  - 82: {fileID: 1439116492}
   m_Layer: 0
   m_Name: PlayerCat
   m_TagString: Player
@@ -6153,8 +6154,66 @@ AudioSource:
   m_GameObject: {fileID: 1439116482}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 7d1ab6c0e03d64ae8b54347eb7144384, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5c461decec9f041b895f1c74a8696ca1, type: 3}
   m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &1439116492
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1439116482}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 635dbf1e0cfc24b4b85b41b5e805f8de, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -6854,6 +6913,43 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: skeletonDataAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 82f1e9477ccc5489b934f6fffc8abe06,
+        type: 2}
+    - target: {fileID: 2300002, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1887232949bf24d4e97e59375c18c6c8, type: 2}
+    - target: {fileID: 8200002, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c461decec9f041b895f1c74a8696ca1, type: 3}
+    - target: {fileID: 8200000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8778677425eb429e8154d520c6b8bc6, type: 2}
   m_RootGameObject: {fileID: 1439116482}
@@ -7526,7 +7622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: ba0b3727b892946978e6af97977bc433, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 82f1e9477ccc5489b934f6fffc8abe06, type: 2}
   initialSkinName: default
   timeScale: 1
   calculateNormals: 1
@@ -7546,7 +7642,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 91199cd3bf6974af0a230827f3dead42, type: 2}
+  - {fileID: 2100000, guid: 1887232949bf24d4e97e59375c18c6c8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

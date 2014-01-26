@@ -1,0 +1,89 @@
+
+Cat02.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 69
+  size: 227, 180
+  orig: 227, 180
+  offset: 0, 0
+  index: -1
+bodyGreen
+  rotate: false
+  xy: 231, 69
+  size: 227, 180
+  orig: 227, 180
+  offset: 0, 0
+  index: -1
+bodyPink
+  rotate: false
+  xy: 460, 69
+  size: 227, 180
+  orig: 227, 180
+  offset: 0, 0
+  index: -1
+eyebrows
+  rotate: false
+  xy: 2, 2
+  size: 128, 14
+  orig: 128, 14
+  offset: 0, 0
+  index: -1
+eyebrowsGreen
+  rotate: false
+  xy: 371, 39
+  size: 102, 28
+  orig: 102, 28
+  offset: 0, 0
+  index: -1
+eyebrowsPink
+  rotate: false
+  xy: 806, 184
+  size: 128, 14
+  orig: 128, 14
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 689, 114
+  size: 89, 61
+  orig: 89, 61
+  offset: 0, 0
+  index: -1
+face_eyesClosed
+  rotate: false
+  xy: 689, 177
+  size: 115, 72
+  orig: 115, 72
+  offset: 0, 0
+  index: -1
+face_smirk
+  rotate: false
+  xy: 280, 7
+  size: 89, 60
+  orig: 89, 60
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 2, 18
+  size: 137, 49
+  orig: 137, 49
+  offset: 0, 0
+  index: -1
+tailGreen
+  rotate: false
+  xy: 806, 200
+  size: 137, 49
+  orig: 137, 49
+  offset: 0, 0
+  index: -1
+tailPink
+  rotate: false
+  xy: 141, 18
+  size: 137, 49
+  orig: 137, 49
+  offset: 0, 0
+  index: -1
