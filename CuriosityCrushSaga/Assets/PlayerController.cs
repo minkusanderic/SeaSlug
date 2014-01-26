@@ -3,21 +3,29 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+	public bool hasDoubleJump;
+	public bool hasClimb;
+
+
 	public float runningSpeed = 10.0f;
 	public float climbingSpeed = 2.0f;
 
 	public float jump_strength = 10.0f;
 	public float jumpSpeedRatio = .8f;
 
+	public float maxGlideSpeed = 10.0f;
+
 
 	private enum STATES {
 		STANDING,
 		JUMPING,
+		DOUBLEJUMP,
 		CLIMBING,
 		RUNNING 
 	};
 
 	private STATES currentState = STATES.JUMPING;
+	private GameObject currentAttached = null;
 
 	private Rigidbody2D body;
 	// Use this for initialization
@@ -53,7 +61,7 @@ public class PlayerController : MonoBehaviour {
 		{
 		case STATES.STANDING:
 			body.gravityScale = 1.0f;
-			body.velocity = new Vector2(0.0f, body.velocity.y);
+			body.angularVelocity = 0.0f;
 			if( Input.GetButtonDown("Jump") )
 			{
 				body.velocity = new Vector2(body.velocity.x, jump_strength);
@@ -67,7 +75,18 @@ public class PlayerController : MonoBehaviour {
 			break;
 		case STATES.JUMPING:
 			body.gravityScale = 1.0f;
-			body.velocity = new Vector2(horizontal * runningSpeed * jumpSpeedRatio, body.velocity.y);
+
+			body.velocity = new Vector2(horizontal * runningSpeed * jumpSpeedRatio, Mathf.Max(body.velocity.y, -maxGlideSpeed));
+			if( hasDoubleJump && Input.GetButtonDown("Jump") )
+			{
+				body.velocity = new Vector2(body.velocity.x, jump_strength);
+				switchTo(STATES.DOUBLEJUMP);
+			}
+			break;
+		case STATES.DOUBLEJUMP:
+			body.gravityScale = 1.0f;
+			
+			body.velocity = new Vector2(horizontal * runningSpeed * jumpSpeedRatio, Mathf.Max(body.velocity.y, -maxGlideSpeed));
 			break;
 		case STATES.RUNNING:
 			body.gravityScale = 1.0f;
@@ -88,6 +107,7 @@ public class PlayerController : MonoBehaviour {
 			body.gravityScale = 0.0f;
 			body.velocity = new Vector2(0.0f, vertical * climbingSpeed);
 			if( Input.GetButtonDown("Jump") ) {
+				body.velocity = new Vector2(horizontal, jump_strength * .5f);
 				switchTo(STATES.JUMPING);
 			}
 			break;
@@ -101,10 +121,12 @@ public class PlayerController : MonoBehaviour {
 		case STATES.STANDING:
 			break;
 		case STATES.JUMPING:
+		case STATES.DOUBLEJUMP:
 
-			if(collision.gameObject.tag == "Climable")
+			if(hasClimb && collision.gameObject.tag == "Climable")
 			{
 				switchTo(STATES.CLIMBING);
+				currentAttached = collision.gameObject;
 			}
 			else
 			{
@@ -122,6 +144,33 @@ public class PlayerController : MonoBehaviour {
 			switchTo(STATES.JUMPING);
 			break;
 		
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D collision)
+	{
+		switch(currentState)
+		{
+		case STATES.STANDING:
+			break;
+		case STATES.JUMPING:
+		case STATES.DOUBLEJUMP:
+			break;
+		case STATES.RUNNING:
+			if(collision.gameObject.tag == "Climable")
+			{
+				switchTo(STATES.CLIMBING);
+				
+			}
+			break;
+		case STATES.CLIMBING:
+			if(collision.gameObject == currentAttached)
+			{
+				switchTo(STATES.JUMPING);
+				currentAttached = null;
+			}
+			break;
+			
 		}
 	}
 
