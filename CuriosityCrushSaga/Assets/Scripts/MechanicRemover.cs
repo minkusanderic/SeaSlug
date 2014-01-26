@@ -27,6 +27,8 @@ public class MechanicRemover : MonoBehaviour {
 			{
 				cont.hasClimb = false;
 			}
+
+			cont.Respawn();
 		}
 	}
 }
