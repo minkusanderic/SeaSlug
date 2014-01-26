@@ -12,12 +12,6 @@ public class TurnAround : MonoBehaviour
     /// <summary>Where we were, last we checked.</summary>
     private Vector3 lastPosition;
 
-    /// <summary>Set initial positions.</summary>
-    void Start()
-    {
-        lastPosition = transform.position;
-    }
-
     /// <summary>Turn around after certain number of frames.</summary>
 	void Update()
     {
@@ -29,15 +23,21 @@ public class TurnAround : MonoBehaviour
         }
         */
 
-        if (transform.position.x - lastPosition.x >= 0)
+        float difference = (transform.position.x - lastPosition.x);
+
+        Debug.Log(">>> Difference: " + difference);
+
+        if (difference > 1)
         {
-            Debug.Log("*>*>*> Setting scale to: " + new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 0f) );
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 0f);
+            Debug.Log("*** Turning right." );
+            transform.RotateAround(Vector3.zero, Vector3.up, 0);
         }
-        else
+        else if (difference < 1)
         {
-            Debug.Log("------ Setting scale to: " + new Vector3(Mathf.Abs(transform.localScale.x) * -1f, transform.localScale.y, 0f) );
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1f, transform.localScale.y, 0f);
+            Debug.Log("*** Turning left." );
+            transform.RotateAround(Vector3.zero, Vector3.up, 180);
         }
+
+        lastPosition = transform.position;
 	}
 }
