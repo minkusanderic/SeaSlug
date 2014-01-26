@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour {
 			}
 			break;
 		}
+		body.velocity = new Vector2(body.velocity.x, Mathf.Max(body.velocity.y, -maxGlideSpeed));
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
