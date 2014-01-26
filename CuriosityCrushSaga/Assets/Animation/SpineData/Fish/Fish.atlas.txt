@@ -1,0 +1,26 @@
+
+Fish.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+base
+  rotate: false
+  xy: 489, 409
+  size: 170, 78
+  orig: 170, 78
+  offset: 0, 0
+  index: -1
+glow
+  rotate: false
+  xy: 2, 2
+  size: 485, 485
+  orig: 485, 485
+  offset: 0, 0
+  index: -1
+glowSkeleton
+  rotate: false
+  xy: 489, 354
+  size: 165, 53
+  orig: 170, 78
+  offset: 2, 15
+  index: -1

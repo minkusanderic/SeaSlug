@@ -1,0 +1,76 @@
+{
+"bones": [
+	{ "name": "root" },
+	{ "name": "fish", "parent": "root" }
+],
+"slots": [
+	{ "name": "glow", "bone": "fish", "attachment": "glow" },
+	{ "name": "base", "bone": "fish", "attachment": "base" },
+	{ "name": "glowSkeleton", "bone": "fish", "attachment": "glowSkeleton" }
+],
+"skins": {
+	"default": {
+		"base": {
+			"base": { "width": 170, "height": 78 }
+		},
+		"glow": {
+			"glow": { "width": 485, "height": 485 }
+		},
+		"glowSkeleton": {
+			"glowSkeleton": { "width": 170, "height": 78 }
+		}
+	}
+},
+"animations": {
+	"animation": {
+		"bones": {
+			"fish": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 0.6666,
+						"x": 0,
+						"y": 11.52,
+						"curve": [ 0.392, 0, 0.75, 1 ]
+					},
+					{ "time": 1.3333, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{ "time": 0, "x": 1, "y": 1 },
+					{ "time": 0.6666, "x": 1.03, "y": 1.014 },
+					{ "time": 1.3333, "x": 1, "y": 1 }
+				]
+			}
+		},
+		"slots": {
+			"glow": {
+				"color": [
+					{
+						"time": 0,
+						"color": "ffffff5e",
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 0.6666,
+						"color": "ffffffe7",
+						"curve": [ 0.39, 0, 0.75, 1 ]
+					},
+					{ "time": 1.3333, "color": "ffffff5e" }
+				]
+			},
+			"glowSkeleton": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 0.6666, "color": "ffffffc7" },
+					{ "time": 1.3333, "color": "ffffff00" }
+				]
+			}
+		}
+	}
+}
+}
