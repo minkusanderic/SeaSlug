@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
 	public float maxGlideSpeed = 10.0f;
 
+	private Vector2 respawnPosition;
 
 	private enum STATES {
 		STANDING,
@@ -32,8 +33,14 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		body = gameObject.GetComponent<Rigidbody2D>();
         Globals.Positions[0] = transform.position;
+		respawnPosition = transform.position;
 	}
-	
+
+	public void Respawn()
+	{
+		gameObject.transform.position = respawnPosition;
+	}
+
 	// Update is called once per frame
 	void Update () {
         //var value = Input.GetAxis("Horizontal");
@@ -137,7 +144,7 @@ public class PlayerController : MonoBehaviour {
 			}
 			break;
 		case STATES.RUNNING:
-			if(collision.gameObject.tag == "Climable")
+			if(hasClimb && collision.gameObject.tag == "Climable")
 			{
 				switchTo(STATES.CLIMBING);
 
@@ -160,7 +167,7 @@ public class PlayerController : MonoBehaviour {
 		case STATES.DOUBLEJUMP:
 			break;
 		case STATES.RUNNING:
-			if(collision.gameObject.tag == "Climable")
+			if(hasClimb && collision.gameObject.tag == "Climable")
 			{
 				switchTo(STATES.CLIMBING);
 				
